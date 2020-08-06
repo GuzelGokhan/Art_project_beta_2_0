@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_181746) do
+ActiveRecord::Schema.define(version: 2020_08_06_172514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "art_pieces", force: :cascade do |t|
+    t.bigint "showroom_id", null: false
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "photos"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["showroom_id"], name: "index_art_pieces_on_showroom_id"
+    t.index ["user_id"], name: "index_art_pieces_on_user_id"
+  end
+
+  create_table "exhibitions", force: :cascade do |t|
+    t.bigint "galery_id", null: false
+    t.string "name"
+    t.string "start_date"
+    t.string "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["galery_id"], name: "index_exhibitions_on_galery_id"
+  end
+
+  create_table "galeries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "latitude"
+    t.string "longtitude"
+    t.string "photos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_galeries_on_user_id"
+  end
+
+  create_table "showrooms", force: :cascade do |t|
+    t.bigint "exhibition_id", null: false
+    t.string "name"
+    t.string "photo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exhibition_id"], name: "index_showrooms_on_exhibition_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +69,9 @@ ActiveRecord::Schema.define(version: 2020_08_04_181746) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "art_pieces", "showrooms"
+  add_foreign_key "art_pieces", "users"
+  add_foreign_key "exhibitions", "galeries"
+  add_foreign_key "galeries", "users"
+  add_foreign_key "showrooms", "exhibitions"
 end
