@@ -20,6 +20,7 @@ class GaleriesController < ApplicationController
   end
 
   def show
+    @exhibition = Exhibition.new
   end
 
   private
