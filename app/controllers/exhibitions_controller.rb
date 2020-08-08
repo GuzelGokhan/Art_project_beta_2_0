@@ -1,6 +1,8 @@
 class ExhibitionsController < ApplicationController
 
+
   before_action :set_exhibition, only: [:destroy, :show]
+
 
   def new
     @exhibition = Exhibition.new
@@ -20,7 +22,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-  
+
   end
 
   def destroy
@@ -31,6 +33,7 @@ class ExhibitionsController < ApplicationController
       flash[:error] = 'Something went wrong'
       redirect_to exhibitions_url
     end
+
   end
   
   
