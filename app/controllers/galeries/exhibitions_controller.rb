@@ -1,7 +1,5 @@
-class ExhibitionsController < ApplicationController
-
-  before_action :set_galery, only: :new
-
+class Galeries::ExhibitionsController < ApplicationController
+  before_action :set_galery 
   def new
     @exhibition = Exhibition.new
   end
@@ -19,12 +17,7 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  def show
-   @showroom = Showroom.new
-  end
-  
-  
-  private 
+  private
 
   def set_galery
     @galery = Galery.find(params[:galery_id])
@@ -33,4 +26,5 @@ class ExhibitionsController < ApplicationController
   def params_exhibition
     params.require(:exhibition).permit(:name, :start_date, :end_date, :galery_id)
   end
+
 end

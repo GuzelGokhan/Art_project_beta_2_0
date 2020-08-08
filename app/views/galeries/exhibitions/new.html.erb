@@ -1,6 +1,6 @@
 <h1> NEW EXHIBITION </h1>
 
-<%= simple_form_for @exhibition, url: galery_exhibitions_path, method: :post %>
+<%= simple_form_for(@exhibition, url: galery_exhibitions_path, method: :post) do |f| %>
 <%= f.input :name %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
