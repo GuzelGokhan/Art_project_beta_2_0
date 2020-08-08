@@ -4,13 +4,12 @@ class Galeries::ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new
   end
   
-
   def create
     @exhibition = Exhibition.new(params_exhibition)
     @exhibition.galery = @galery
     if @exhibition.save
       flash[:success] = "Exhibition successfully created"
-      redirect_to @exhibition
+      render(template: 'exhibitions/show')
     else
       flash[:error] = "Something went wrong"
       render 'new'
