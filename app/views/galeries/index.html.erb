@@ -1,7 +1,37 @@
-<h1>INDEX</h1>
-
-<% @galeries.each do |galery, i| %>
-<ul>
-  <li><%= galery.id %>-<%=  galery.name %></li>
-</ul>
-<%end%>
+<div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <% @galeries.each do |galery| %>
+      <% if galery.eql?(@galeries.first) %>
+      <li data-target="#carouselExampleIndicators" data-slide-to=<%="#{galery.id}"%> class="active"></li>
+      <% else %>
+      <li data-target="#carouselExampleIndicators" data-slide-to=<%="#{galery.id}"%>></li>
+      <%end%>
+      <%end%>
+    </ol>
+    <div class="carousel-inner">
+      <% @galeries.each do |galery| %>
+      <% if galery.eql?(@galeries.first)%>
+      <div class="carousel-item active">
+        <%else%>
+        <div class="carousel-item">
+          <%end%>
+          <%= image_tag "art-gallery.jpg", class: "d-block w-100", alt: galery.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <%= link_to  "#{galery.name}", galery_path(galery), {:style=>'color:#FFFFFF; font-size:150%;'} %>
+            <p><%= galery.location%></p>
+          </div>
+        </div>
+        <%end%>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <%= link_to  "New Galery", new_galery_path , :class => "btn btn-primary" %>
+  </div>

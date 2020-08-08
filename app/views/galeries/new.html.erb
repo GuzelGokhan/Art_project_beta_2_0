@@ -1,5 +1,9 @@
-<%= simple_form_for @galery do |f| %>
-<%= f.input :name %>
-<%= f.input :location %>
-<%= f.submit %>
-<%end%>
+<div class="container">
+
+  <%= simple_form_for @galery do |f| %>
+  <h4> New Galery </h4>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.submit class: 'btn btn-primary'%>
+  <%end%>
+</div>

@@ -1,3 +1,4 @@
+
 <h1>Summer exhibitions</h1>
 
 <h1><%= @exhibition.name %></h1>
@@ -13,3 +14,8 @@
     <a href="#" class="stretched-link">https://www.dezeen.com/2012/10/04/rain-room-by-random-international-at-the-barbican/</a>
   </div>
 </div>
+
+
+
+<%= link_to  "delete" , exhibition_path(@exhibition) ,method: :delete, :class => "btn btn-primary" %>
+
