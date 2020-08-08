@@ -1,3 +1,9 @@
-<h1>Show</h1>
-
-<%= @galery.name %>
+<h2>Galerie <%= @galery.name %><h2>
+    <h3>- Exhibitions -</h3>
+    <% @galery.exhibitions.each do |exhibition| %>
+    <ul>
+      <li><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path %></li>
+    </ul>
+    <%end%>
+    <%= link_to  "new", new_galery_exhibition_path(@galery) %>
+    <%= link_to "back", galeries_path %>
