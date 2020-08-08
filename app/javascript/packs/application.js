@@ -32,3 +32,9 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+const carrousel = document.querySelector(".carousel-item");
+carrousel.addEventListener('click', (event) => {
+  // Callback
+  console.log(event);
+});
