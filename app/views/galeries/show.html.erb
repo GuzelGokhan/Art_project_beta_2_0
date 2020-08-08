@@ -5,5 +5,5 @@
       <li><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path %></li>
     </ul>
     <%end%>
-    <%= link_to  "new", new_galery_exhibition_path(@galery) %>
-    <%= link_to "back", galeries_path %>
+    <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-primary" %>
+    <%= link_to "back", galeries_path , :class => "btn btn-primary" %>

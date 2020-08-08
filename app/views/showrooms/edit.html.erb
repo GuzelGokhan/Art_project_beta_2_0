@@ -1,6 +1,10 @@
-<% simple_form_for @showroom do |f| %>
-<%= f.input :name %>
-<%= f.input :photo%>
-<%= f.submit %>
-<%= f.cancel %>
-<%end%>
+<div class="container">
+
+  <% simple_form_for @showroom do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo%>
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.cancel class: 'btn btn-primary' %>
+  <%end%>
+
+</div>

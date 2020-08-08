@@ -1,8 +1,10 @@
 <h1> NEW EXHIBITION </h1>
+<div class="container">
+  <%= simple_form_for(@exhibition, url: galery_exhibitions_path, method: :post) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit class: 'btn btn-primary' %>
+  <%end%>
 
-<%= simple_form_for(@exhibition, url: galery_exhibitions_path, method: :post) do |f| %>
-<%= f.input :name %>
-<%= f.input :start_date %>
-<%= f.input :end_date %>
-<%= f.submit %>
-<%end%>
+</div>
