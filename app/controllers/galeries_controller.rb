@@ -1,5 +1,5 @@
 class GaleriesController < ApplicationController
-  before_action :set_galery, only: [:show]
+  before_action :set_galery, only: [:show,:edit,:update,:destroy]
   def index
     @galeries = Galery.all
   end
@@ -18,6 +18,32 @@ class GaleriesController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+  end
+
+  def update
+      if @galery.update_attributes(params[:galery])
+        flash[:success] = "Galery was successfully updated"
+        redirect_to @galery
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
+
+  def destroy
+    if @galery.destroy
+      flash[:success] = 'Galery was successfully deleted.'
+      redirect_to galerys_url
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to galerys_url
+    end
+  end
+  
+  
+  
 
   def show
     @exhibition = Exhibition.new
