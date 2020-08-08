@@ -1,7 +1,7 @@
 <h1>INDEX</h1>
 
-<% @galeries.each do |galery, i| %>
+<% @galeries.each do |galery| %>
 <ul>
-  <li><%= galery.id %>-<%=  galery.name %></li>
+  <li><%= galery.id %>-<%= link_to  "#{galery.name}", galery_path(galery) %></li>
 </ul>
 <%end%>
