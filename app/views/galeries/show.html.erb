@@ -2,7 +2,7 @@
     <h3>- Exhibitions -</h3>
     <% @galery.exhibitions.each do |exhibition| %>
     <ul>
-      <li><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition) %></li>
+      <li><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition), {:style=>'color:#FFFFFF; font-size:150%;'} %></li>
     </ul>
     <%end%>
     <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-primary" %>
