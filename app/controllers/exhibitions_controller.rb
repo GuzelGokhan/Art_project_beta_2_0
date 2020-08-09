@@ -1,20 +1,20 @@
 class ExhibitionsController < ApplicationController
+  before_action :set_exhibition, only: [:new, :create]
 
-
-  before_action :set_exhibition, only: [:destroy, :show]
-
-
+  def index
+    @exhibitions = Exhibition.all
+  end
+   
   def new
     @exhibition = Exhibition.new
   end
   
-
   def create
     @exhibition = Exhibition.new(params_exhibition)
     @exhibition.galery = @galery
     if @exhibition.save
       flash[:success] = "Exhibition successfully created"
-      redirect_to @exhibition
+      render(template: "exhibitions/show")
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -22,7 +22,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-
+    @exhibition = Exhibition.new
   end
 
   def destroy

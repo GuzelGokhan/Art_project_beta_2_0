@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :galeries do 
-    resources :exhibitions, module: :galeries, only: [:new, :create, :show]
+    resources :exhibitions, module: :galeries, only: [:id]
   end
  
   resources :exhibitions do
