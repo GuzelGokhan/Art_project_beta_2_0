@@ -18,8 +18,8 @@ class Galeries::ExhibitionsController < ApplicationController
 
   private
 
-  def set_galery
-    @galery = Galery.find(params[:galery_id])
+  def set_exhibition
+    @exhibition = Exhibition.find(params[:id])
   end
 
   def params_exhibition
