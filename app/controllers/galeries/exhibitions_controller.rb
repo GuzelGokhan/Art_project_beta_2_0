@@ -1,5 +1,6 @@
 class Galeries::ExhibitionsController < ApplicationController
   before_action :set_galery 
+  
   def new
     @exhibition = Exhibition.new
   end

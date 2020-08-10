@@ -1,22 +1,16 @@
 
-<h1>Summer exhibitions</h1>
-
 <h1><%= @exhibition.name %></h1>
 
-<div class="row no-gutters bg-light position-relative">
+<div class="container">
   <div class="col-md-6 mb-md-2 p-md-4">
     <img src="..." class="w-100" alt="...">
   </div>
   
-  <div class="col-md-6 position-static p-4 pl-md-0">
-    <h5 class="mt-2">Title</h5>
     <p>description</p>
 
     <a href="#" class="stretched-link">to the showrooms click here</a>
   </div>
 </div>
-
-
 
 <%= link_to  "delete" , exhibition_path(@exhibition) ,method: :delete, :class => "btn btn-primary" %>
 
