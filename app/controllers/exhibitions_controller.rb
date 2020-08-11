@@ -22,7 +22,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    @exhibition = Exhibition.new
+    @exhibition = Exhibition.find(params[:id])
   end
 
   def destroy
