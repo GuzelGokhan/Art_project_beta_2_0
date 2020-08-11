@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   end
  
   resources :exhibitions do
-     resources :showrooms
+     resources :showrooms, module: :exhibitions, only: [:new, :create, :show]
   end
   
-  
+  resources :showrooms do
+    resources :art_pieces, module: :showrooms, only: [:new, :create, :show]
+  end
 end

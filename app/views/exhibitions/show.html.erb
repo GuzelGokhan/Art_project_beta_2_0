@@ -6,8 +6,10 @@
   <div class="col-md-6 mb-md-2 p-md-4">
     <img src="..." class="w-100" alt="...">
   </div>
-  
+</div>
 
-<%= link_to  "create", exhibition_path(@exhibition), method: :create, :class => "btn btn-primary" %>
+
 <%= link_to  "delete", exhibition_path(@exhibition), method: :delete, :class => "btn btn-primary" %>
 <%= link_to  "edit", exhibition_path(@exhibition), method: :edit, :class => "btn btn-primary" %>
+<%= link_to  "create showroom", new_exhibition_showroom_path(@exhibition) , :class => "btn btn-primary" %>
+

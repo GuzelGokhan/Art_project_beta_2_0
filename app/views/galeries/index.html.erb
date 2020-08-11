@@ -16,7 +16,7 @@
         <%else%>
         <div class="carousel-item">
           <%end%>
-          <%= image_tag "art-gallery.jpg", class: "d-block w-100", alt: galery.name %>
+          <%= cl_image_tag galery.photo.key, class: "d-block w-100", alt: galery.name %>
           <div class="carousel-caption d-none d-md-block">
             <%= link_to  "#{galery.name}", galery_path(galery), {:style=>'color:#FFFFFF; font-size:150%;'} %>
             <p><%= galery.location%></p>

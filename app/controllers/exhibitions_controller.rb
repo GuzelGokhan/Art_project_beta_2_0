@@ -1,5 +1,5 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_exhibition, only: [:new, :create]
+  before_action :set_exhibition, only: [:new, :create, :destroy, :show]
 
   def index
     @exhibitions = Exhibition.all
@@ -36,15 +36,9 @@ class ExhibitionsController < ApplicationController
 
   end
   
-  
-  
   private 
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
-  end
-
-  def params_exhibition
-    params.require(:exhibition).permit(:name, :start_date, :end_date, :galery_id)
   end
 end

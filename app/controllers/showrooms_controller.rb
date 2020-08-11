@@ -1,39 +1,28 @@
 class ShowroomsController < ApplicationController
-  before_action :set_exhibition, only: :create
+
+  before_action :set_showroom, only: [:destroy, :show]
 
   def index
     @showrooms = Showroom.all
   end
   
-  def new
-    @showroom = Showroom.new
-  end
-
-  def edit
-    raise
+  def show
   end
   
-  
-  def create
-    @showroom = Showroom.new(params_showroom)
-    @showroom.exhibition = @exhibition
-    if @showroom.save
-      flash[:success] = "Showroom successfully created"
-      redirect_to @showroom
+  def destroy
+    if @showroom.destroy
+      flash[:success] = 'showroom was successfully deleted.'
+      redirect_to exhibition_path(@showroom.exhibition)
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      flash[:error] = 'Something went wrong'
+      redirect_to showrooms_url
     end
+
   end
   
   private 
 
-  def params_showroom
-    params.require(:showroom).permit(:name,:photo)
+  def set_showroom
+    @showroom = Showroom.find(params[:id])
   end
-
-  def set_exhibition
-    @exhibition = Exhibition.find(params[:exhibition_id])
-  end
-  
 end
