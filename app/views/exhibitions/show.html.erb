@@ -1,4 +1,3 @@
-
 <h1>Summer exhibitions</h1>
 
 <h1><%= @exhibition.name %></h1>
@@ -10,12 +9,11 @@
   <div class="col-md-6 position-static p-4 pl-md-0">
     <h5 class="mt-2">Let's cool off!</h5>
     <p>Visitors can play in the rain without getting wet in this installation by interactive designers rAndom International at the Barbican in London. Located in The Curve gallery, Rain Room is a perpetual rain shower which lets visitors feel the moisture in the air and hear the sound of rain while remaining untouched by drops of water. Cameras installed around the room detect human movements and send instructions to the rain drops to continually move away from visitors. The water drips through a grid in the floor where it is treated before being sent back up to the ceiling to fall again.Formed in 2005 by former Royal College of Art students Hannes Koch, Florian Ortkrass and Stuart Wood, rAndom International has created a number of installations involving audience participation.
-</p>
+    </p>
     <a href="#" class="stretched-link">https://www.dezeen.com/2012/10/04/rain-room-by-random-international-at-the-barbican/</a>
   </div>
 </div>
 
 
-
+<%= link_to  "new", new_exhibition_showroom_path(@exhibition) , :class => "btn btn-primary" %>
 <%= link_to  "delete" , exhibition_path(@exhibition) ,method: :delete, :class => "btn btn-primary" %>
-
