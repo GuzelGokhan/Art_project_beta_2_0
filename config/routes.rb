@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
   
   resources :showrooms do
-    resources :art_pieces, module: :showrooms, only: [:new, :create, :show]
+    resources :art_pieces, module: :showrooms, only: [:new, :create]
   end
+
+  resources :art_pieces, only: [:show]
 end

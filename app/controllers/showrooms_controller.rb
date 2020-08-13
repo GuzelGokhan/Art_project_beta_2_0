@@ -7,6 +7,7 @@ class ShowroomsController < ApplicationController
   end
   
   def show
+    @art_piece = ArtPiece.new
   end
   
   def destroy
