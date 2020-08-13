@@ -1,9 +1,5 @@
 class Exhibitions::ShowroomsController < ApplicationController
   before_action :set_exhibition
-
-  def index
-    @showrooms = Showroom.all
-  end
   
   def new
     @showroom = Showroom.new
