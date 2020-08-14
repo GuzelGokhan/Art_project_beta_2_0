@@ -1,19 +1,77 @@
-<h1>Summer exhibitions</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-5">
 
-<h1><%= @exhibition.name %></h1>
 
-<div class="row no-gutters bg-light position-relative">
-  <div class="col-md-6 mb-md-2 p-md-4">
-    <img src="..." class="w-100" alt="...">
+      <a href="artist.php?la=en&amp;artist_id=73" class="galerie_templon_artistname" title="Will Cotton">
+        Will Cotton </a><br>
+      <br>
+      <span class="galerie_templon_exhibition_title galerie_templon_work_block_data_line_height">
+        <%= @exhibition.name %> </span><br>
+      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+        <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
+      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+        <%= @exhibition.galery.location %> </span> <br>
+      <br>
+      <br>
+
+      <a href="exhibition.php?la=en&amp;show_id=668&amp;display_work=1" class="galerie_templon_expoDetailMenu  active " title="Selected work">Selected works</a><br>
+      <a href="exhibition.php?la=en&amp;show_id=668&amp;display_press=1" class="galerie_templon_expoDetailMenu " title="Press release">Press release</a>
+      <span class="galerie_templon_expoDetailMenuSpace"> - </span><a href="/pdf/expo/pdf_668_us.pdf" class="galerie_templon_expoDetailMenu" target="_blank"><img src="imagesdesign/download_pdf.png" width="16" height="16" alt=""></a>
+      <br>
+      <a href="exhibition.php?la=en&amp;show_id=668&amp;display_video=1" class="galerie_templon_expoDetailMenu " title="Video">Video</a><br>
+
+      <br>
+      <br>
+      <p>We invite you to experience our new online viewing room for an immersive visit of this exhibition.</p>
+      <p><a href="http://viewingroom.templon.com/en/will-cotton/" target="_blank" rel="noopener">viewingroom.templon.com</a></p>
+    </div>
+    <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+      <div class="text-center" style="margin-top: 5px;">
+        <div id="myCarousel" class="carousel slide" data-interval="false">
+          <div class="carousel-inner center">
+            <% @exhibition.art_pieces.each do |art_piece| %>
+            <% if art_piece.eql?(@exhibition.art_pieces.first) %>
+            <div class="carousel-item  active ">
+              <% else %>
+              <div class="carousel-item ">
+                <%end%>
+                <div class="text-center" style="width: 100%;">
+                  <%= cl_image_tag art_piece.photo.key, class:"d-block  mx-auto", style:"left: auto;right: auto; width:400px;" %>
+                  <div class="carousel-caption"> <span class="galerie_templon_exhibition_title">
+                      <%= art_piece.name %></span><br>
+
+                    <span class="galerie_templon_date">
+                      <%= art_piece.description %><br>
+                      <%= art_piece.dimension %><br>
+                    </span></div>
+                </div>
+              </div>
+              <%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
   </div>
-  <div class="col-md-6 position-static p-4 pl-md-0">
-    <h5 class="mt-2">Let's cool off!</h5>
-    <p>Visitors can play in the rain without getting wet in this installation by interactive designers rAndom International at the Barbican in London. Located in The Curve gallery, Rain Room is a perpetual rain shower which lets visitors feel the moisture in the air and hear the sound of rain while remaining untouched by drops of water. Cameras installed around the room detect human movements and send instructions to the rain drops to continually move away from visitors. The water drips through a grid in the floor where it is treated before being sent back up to the ceiling to fall again.Formed in 2005 by former Royal College of Art students Hannes Koch, Florian Ortkrass and Stuart Wood, rAndom International has created a number of installations involving audience participation.
-    </p>
-    <a href="#" class="stretched-link">https://www.dezeen.com/2012/10/04/rain-room-by-random-international-at-the-barbican/</a>
-  </div>
-</div>
-
-
-<%= link_to  "create showroom", new_exhibition_showroom_path(@exhibition) , :class => "btn btn-primary" %>
-<%= link_to  "delete" , exhibition_path(@exhibition) ,method: :delete, :class => "btn btn-primary" %>

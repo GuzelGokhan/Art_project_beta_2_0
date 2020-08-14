@@ -7,6 +7,7 @@ class Showrooms::ArtPiecesController < ApplicationController
   def create
     @art_piece = ArtPiece.new(params_art_piece)
     @art_piece.showroom = @showroom
+    @art_piece.exhibition = @exhibition
     if @art_piece.save
       flash[:success] = "Object successfully created"
       redirect_to @art_piece
@@ -19,11 +20,12 @@ class Showrooms::ArtPiecesController < ApplicationController
   private
 
   def params_art_piece
-    params.require(:art_piece).permit(:name,:photo, :showroom_id).merge(user: current_user)
+    params.require(:art_piece).permit(:name,:photo, :description , :dimension ,:showroom_id).merge(user: current_user)
   end
 
   def set_showroom
     @showroom = Showroom.find(params[:showroom_id])
+    @exhibition = @showroom.exhibition
   end
 
   
