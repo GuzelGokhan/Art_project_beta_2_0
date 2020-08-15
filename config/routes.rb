@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   resources :exhibitions do
      resources :showrooms, module: :exhibitions, only: [:new, :create, :show]
   end
+
+  resources :exhibitions do
+    resources :art_pieces, module: :exhibitions, only: [:new, :create]
+  end
   
   resources :showrooms do
-    resources :art_pieces, module: :showrooms, only: [:new, :create]
+    resources :art_pieces, module: :showrooms, only: [:show, :index]
   end
 
-  resources :art_pieces, only: [:show]
+  resources :art_pieces, only: [:show, :index]
 end

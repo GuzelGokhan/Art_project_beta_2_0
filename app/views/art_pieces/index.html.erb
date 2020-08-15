@@ -1,0 +1,21 @@
+<div class="artworks-list">
+  <%= @art_pieces.each do |art_piece| %>
+  <div class="single-artwork" data-image="/images/willcotton/artworks/COTTON_Flying_Cowboy_2020_402987.jpg" data-title="Flying Cowboy" data-year="2020" data-uuid="49520678-e6b9-4cef-b25a-8f758f70a122" data-sold="" data-description="[&quot;Oil on linen&quot;,&quot;243,8 x 182,9 cm&quot;,&quot;96 x 72 in.&quot;, &quot;&quot;]">
+    <div class="image-holder exposition">
+      <%= cl_image_tag art_piece.photo.key %>
+      <div class="opener">
+        view
+      </div>
+    </div>
+    <div class="info">
+      <p class="title">Flying Cowboy</p>
+      <p>243,8 x 182,9 cm,96 x 72 in.</p>
+      <p>Oil on linen</p>
+    </div>
+  </div>
+  <%end%>
+</div>
+<div class="buttons text-right">
+  <a class="big-btn" href="/en/will-cotton">&lt; Back</a>
+</div>
+</div>
