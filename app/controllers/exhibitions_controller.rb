@@ -1,9 +1,12 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:destroy, :show]
+  before_action :set_exhibition, only: [:destroy, :show, :video]
 
   def show
     @showroom = Showroom.new
+  end
+
+  def video
   end
 
   def destroy

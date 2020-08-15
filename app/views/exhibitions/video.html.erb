@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-12 col-sm-6 col-md-5 col-lg-5">
 
-
       <a href="artist.php?la=en&amp;artist_id=73" class="galerie_templon_artistname" title="Will Cotton">
         Will Cotton </a><br>
       <br>
@@ -20,59 +19,19 @@
       <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Press release" %><br>
       <%= link_to  "Video", video_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Video" %><br>
 
-
       <br>
       <br>
       <p>We invite you to experience our new online "Show room" for an immersive visit of this exhibition.</p>
       <p><a href="#" target="_blank" rel="noopener">Go to the showroom</a></p>
       <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %>
+
     </div>
     <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-      <div class="text-center" style="margin-top: 5px;">
-        <div id="myCarousel" class="carousel slide" data-interval="false">
-          <div class="carousel-inner center">
-            <% @exhibition.art_pieces.each do |art_piece| %>
-            <% if art_piece.eql?(@exhibition.art_pieces.first) %>
-            <div class="carousel-item  active ">
-              <% else %>
-              <div class="carousel-item ">
-                <%end%>
-                <div class="text-center" style="width: 100%;">
-                  <%= cl_image_tag art_piece.photo.key, class:"d-block  mx-auto", style:"left: auto;right: auto; width:400px;" %>
-                  <div class="carousel-caption"> <span class="galerie_templon_exhibition_title">
-                      <%= art_piece.name %></span><br>
 
-                    <span class="galerie_templon_date">
-                      <%= art_piece.description %><br>
-                      <%= art_piece.dimension %><br>
-                    </span></div>
-                </div>
-              </div>
-              <%end%>
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/I31Xa8CL2ws" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> <br>
+      <br>
     </div>
+
+
   </div>
+</div>
