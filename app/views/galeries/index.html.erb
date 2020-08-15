@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="h-100 carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <% @galeries.each do |galery| %>
       <% if galery.eql?(@galeries.first) %>
@@ -18,7 +18,7 @@
           <%end%>
           <%= cl_image_tag galery.photo.key, class: "d-block w-100", alt: galery.name %>
           <div class="carousel-caption d-none d-md-block">
-            <%= link_to  "#{galery.name}", galery_path(galery), {:style=>'color:#FFFFFF; font-size:150%;'} %>
+            <%= link_to  "#{galery.name}", galery_path(galery), {:style=>'color: gray; font-size:150%;'} %>
             <p><%= galery.location%></p>
           </div>
         </div>
@@ -33,5 +33,4 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <%= link_to  "New Galery", new_galery_path , :class => "btn btn-primary" %>
   </div>
