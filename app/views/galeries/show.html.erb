@@ -1,16 +1,19 @@
   <% content_for :meta_title, @galery.name %>
+
   <div class="container">
     <div class="card text-center p-3 mb-2">
       <h2><%= @galery.name %> </h2>
       <h6><%= @galery.location %></h6>
     </div>
-    <div class="row">
+    <div class="card text-center"><span><%= link_to  "New Exhibition", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %> | <span><%= link_to "Edit Galery", edit_galery_path(@galery), :class => "btn btn-light"  %></span></div>
+
+    <div class="row" style="margin-top:10px;">
       <div class="col-12 col-lg-9">
         <% @galery.exhibitions.each do |exhibition| %>
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="text-center">
-              <%=link_to( cl_image_tag(exhibition.art_pieces.last.photo.key, class: "img-fluid"), exhibition_path(exhibition) )%>
+              <%=link_to( cl_image_tag(exhibition.art_pieces.last.photo.key, class: "img-fluid", style: "height:400px;"), exhibition_path(exhibition) )%>
             </div>
             <div class="text-center galerie_templon_work_block_data">
               <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
@@ -26,8 +29,5 @@
           </div>
         </div>
         <%end%>
-        <% if current_user == @galery.user %>
-        <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %>
-        <% end %>
       </div>
     </div>

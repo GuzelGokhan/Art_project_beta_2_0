@@ -1,86 +1,89 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-6 col-md-5 col-lg-5">
+  <div class="card text-center">
+    <span><%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %> |
+      <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-5">
 
 
-      <a href="#" class="artistname" title="Will Cotton">
-        <%= @exhibition.artist %></a><br>
-      <br>
-      <span class="exhibition_title work_block_data_line_height">
-        <%= @exhibition.name %> </span><br>
-      <span class="date work_block_data_line_height">
-        <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
-      <span class="date work_block_data_line_height">
-        <%= @exhibition.galery.location %> </span> <br>
-      <br>
-      <br>
+        <a href="#" class="artistname" title="Will Cotton">
+          <%= @exhibition.artist %></a><br>
+        <br>
+        <span class="exhibition_title work_block_data_line_height">
+          <%= @exhibition.name %> </span><br>
+        <span class="date work_block_data_line_height">
+          <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
+        <span class="date work_block_data_line_height">
+          <%= @exhibition.galery.location %> </span> <br>
+        <br>
+        <br>
 
 
-      <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
-      <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active", :title => "Press release" %><br>
-      <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Video" %><br>
+        <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
+        <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active", :title => "Press release" %><br>
+        <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Video" %><br>
 
 
-      <br>
-      <br>
-      <p>We invite you to experience our new online "Show room" for an immersive visit of this exhibition.</p>
-      <p><%= link_to "Go to the showroom", "#", :class => "btn btn-light" %></p>
-
-      <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %> |
-      <span><%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span>
-    </div>
-    <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-      <div class="text-center" style="margin-top: 5px;">
-
-        <div id="myCarousel" class="carousel slide" data-interval="false">
-          <div class="carousel-inner center">
-            <% @exhibition.art_pieces.each do |art_piece| %>
-            <% if art_piece.eql?(@exhibition.art_pieces.first) %>
-            <div class="carousel-item  active ">
-              <% else %>
-              <div class="carousel-item ">
-                <%end%>
-                <div class="text-center" style="width: 100%;">
-
-                  <%=link_to( cl_image_tag(art_piece.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px;" ), art_piece_path(art_piece) ) %>
-
-                  <div class="carousel-caption-exhibition"> <span class="exhibition_title">
-                      <%= art_piece.name %></span><br>
-
-                    <span class="date">
-                      <%= art_piece.description %><br>
-                      <%= art_piece.dimension %><br>
-                    </span></div>
-
-                </div>
-              </div>
-              <%end%>
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-            <% if @exhibition.art_pieces.first %>
-            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-            <%end%>
-          </div>
-        </div>
+        <br>
+        <br>
+        <p>We invite you to experience our new online "Show room" for an immersive visit of this exhibition.</p>
+        <p><%= link_to "Go to the showroom", "#", :class => "btn btn-light" %></p>
 
       </div>
+      <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+        <div class="text-center" style="margin-top: 5px;">
+
+          <div id="myCarousel" class="carousel slide" data-interval="false">
+            <div class="carousel-inner center">
+              <% @exhibition.art_pieces.each do |art_piece| %>
+              <% if art_piece.eql?(@exhibition.art_pieces.first) %>
+              <div class="carousel-item  active ">
+                <% else %>
+                <div class="carousel-item ">
+                  <%end%>
+                  <div class="text-center" style="width: 100%;">
+
+                    <%=link_to( cl_image_tag(art_piece.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px;" ), art_piece_path(art_piece) ) %>
+
+                    <div class="carousel-caption-exhibition"> <span class="exhibition_title">
+                        <%= art_piece.name %></span><br>
+
+                      <span class="date">
+                        <%= art_piece.description %><br>
+                        <%= art_piece.dimension %><br>
+                      </span></div>
+
+                  </div>
+                </div>
+                <%end%>
 
 
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <% if @exhibition.art_pieces.first %>
+              <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+              <%end%>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
     </div>
-  </div>

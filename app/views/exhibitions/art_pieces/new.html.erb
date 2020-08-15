@@ -1,12 +1,12 @@
 <div class="container">
 
   <%= simple_form_for(@art_piece, url: exhibition_art_pieces_path , method: :post) do |f| %>
-  <h4> New Art_Piece </h4>
+  <h4> New Piece </h4>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :dimension %>
   <%= f.input :photo %>
-  <%= f.submit class: 'btn btn-light' %>
+  <%= f.submit "Add", class: 'btn btn-light' %>
   <%end%>
 
 </div>
