@@ -1,5 +1,5 @@
 class Galeries::ExhibitionsController < ApplicationController
-  before_action :set_galery 
+  before_action :set_galery
   def new
     @exhibition = Exhibition.new
   end
@@ -23,7 +23,7 @@ class Galeries::ExhibitionsController < ApplicationController
   end
 
   def params_exhibition
-    params.require(:exhibition).permit(:name, :start_date, :end_date, :galery_id)
+    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video, :galery_id)
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_15_092707) do
+ActiveRecord::Schema.define(version: 2020_08_15_152416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 2020_08_15_092707) do
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "artist"
+    t.string "video"
     t.index ["galery_id"], name: "index_exhibitions_on_galery_id"
   end
 
   create_table "galeries", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.string "latitude"
-    t.string "longtitude"
     t.string "photos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_08_15_092707) do
   create_table "showrooms", force: :cascade do |t|
     t.bigint "exhibition_id", null: false
     t.string "name"
-    t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exhibition_id"], name: "index_showrooms_on_exhibition_id"

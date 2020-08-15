@@ -1,7 +1,7 @@
 <div class="container">
 
-  <%= simple_form_for(@exhibition, url: galery_exhibitions_path, method: :post) do |f| %>
-  <h4> New Exhibition </h4>
+  <%= simple_form_for @exhibition do |f| %>
+  <h4> Edit Exhibition </h4>
   <%= f.input :name %>
   <%= f.input :artist %>
   <%= f.input :video %>

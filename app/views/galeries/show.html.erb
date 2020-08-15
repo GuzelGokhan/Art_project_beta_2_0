@@ -1,8 +1,7 @@
-
 <% content_for :meta_title, @galery.name %>
 
 <div class="container">
-<h2>Galerie <%= @galery.name %></h2>
+  <h2>Galerie <%= @galery.name %></h2>
 
   <h3>- Exhibitions -</h3>
   <ul>
@@ -11,7 +10,7 @@
     <%end%>
   </ul>
   <% if current_user == @galery.user %>
-    <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %>
+  <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %>
   <% end %>
   <%= link_to "back", galeries_path , :class => "btn btn-light" %>
 </div>

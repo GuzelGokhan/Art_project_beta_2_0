@@ -2,22 +2,22 @@
   <div class="row">
     <div class="col-12 col-sm-6 col-md-5 col-lg-5">
 
-      <a href="artist.php?la=en&amp;artist_id=73" class="galerie_templon_artistname" title="Will Cotton">
-        Will Cotton </a><br>
+
+      <%= link_to  "#{@exhibition.artist}", "#" %><br>
       <br>
-      <span class="galerie_templon_exhibition_title galerie_templon_work_block_data_line_height">
+      <span class="exhibition_title work_block_data_line_height">
         <%= @exhibition.name %> </span><br>
-      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+      <span class="date work_block_data_line_height">
         <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
-      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+      <span class="date work_block_data_line_height">
         <%= @exhibition.galery.location %> </span> <br>
       <br>
       <br>
 
 
-      <%= link_to  "Selected works", exhibition_art_pieces_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Selected works" %><br>
-      <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Press release" %><br>
-      <%= link_to  "Video", video_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Video" %><br>
+      <%= link_to  "Selected works", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
+      <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Press release" %><br>
+      <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Video" %><br>
 
       <br>
       <br>
@@ -28,10 +28,9 @@
     </div>
     <div class="col-12 col-sm-12 col-md-7 col-lg-7">
 
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/I31Xa8CL2ws" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> <br>
+      <iframe width="560" height="315" src=<%=@exhibition.video %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> <br>
       <br>
     </div>
-
 
   </div>
 </div>

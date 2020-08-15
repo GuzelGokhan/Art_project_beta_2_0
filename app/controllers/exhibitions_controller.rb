@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:destroy, :show, :video]
+  before_action :set_exhibition
 
   def show
     @showroom = Showroom.new
@@ -20,9 +20,29 @@ class ExhibitionsController < ApplicationController
 
   end
   
+  def edit
+   
+  end
+
+  def update
+    
+      if @exhibition.update_attributes(params_exhibition)
+        flash[:success] = "Exhibition was successfully updated"
+        redirect_to @exhibition
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
+  
+  
   private 
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
+  end
+
+  def params_exhibition
+    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video)
   end
 end

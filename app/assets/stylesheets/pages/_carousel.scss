@@ -9,9 +9,17 @@
 }
 
 .carousel-control-prev {
-  left: 15%;
+  left: -10%;
 }
 
 .carousel-control-next {
+  left: 95%;
+}
+
+#carousel-control-prev-ex {
+  left: 15%;
+}
+
+#carousel-control-next-ex {
   left: 70%;
 }

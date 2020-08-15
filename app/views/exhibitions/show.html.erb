@@ -3,29 +3,30 @@
     <div class="col-12 col-sm-6 col-md-5 col-lg-5">
 
 
-      <a href="artist.php?la=en&amp;artist_id=73" class="galerie_templon_artistname" title="Will Cotton">
-        Will Cotton </a><br>
+      <a href="#" class="artistname" title="Will Cotton">
+        <%= @exhibition.artist %></a><br>
       <br>
-      <span class="galerie_templon_exhibition_title galerie_templon_work_block_data_line_height">
+      <span class="exhibition_title work_block_data_line_height">
         <%= @exhibition.name %> </span><br>
-      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+      <span class="date work_block_data_line_height">
         <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
-      <span class="galerie_templon_date galerie_templon_work_block_data_line_height">
+      <span class="date work_block_data_line_height">
         <%= @exhibition.galery.location %> </span> <br>
       <br>
       <br>
 
 
-      <%= link_to  "Selected works", exhibition_art_pieces_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Selected works" %><br>
-      <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Press release" %><br>
-      <%= link_to  "Video", video_path(@exhibition) , :class => "galerie_templon_expoDetailMenu  active", :title => "Video" %><br>
+      <%= link_to  "Selected works", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
+      <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Press release" %><br>
+      <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Video" %><br>
 
 
       <br>
       <br>
       <p>We invite you to experience our new online "Show room" for an immersive visit of this exhibition.</p>
       <p><a href="#" target="_blank" rel="noopener">Go to the showroom</a></p>
-      <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %>
+      <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %><br>
+      <span><%= link_to  "edit", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span>
     </div>
     <div class="col-12 col-sm-12 col-md-7 col-lg-7">
       <div class="text-center" style="margin-top: 5px;">
@@ -39,10 +40,10 @@
                 <%end%>
                 <div class="text-center" style="width: 100%;">
                   <%= cl_image_tag art_piece.photo.key, class:"d-block  mx-auto", style:"left: auto;right: auto; width:400px;" %>
-                  <div class="carousel-caption"> <span class="galerie_templon_exhibition_title">
+                  <div class="carousel-caption"> <span class="exhibition_title">
                       <%= art_piece.name %></span><br>
 
-                    <span class="galerie_templon_date">
+                    <span class="date">
                       <%= art_piece.description %><br>
                       <%= art_piece.dimension %><br>
                     </span></div>
@@ -62,10 +63,10 @@
 
 
             </div>
-            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
           </div>
