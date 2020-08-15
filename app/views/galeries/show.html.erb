@@ -1,4 +1,7 @@
-<h2>Galerie <%= @galery.name %><h2>
+<% content_for :meta_title, @galery.name %>
+
+
+    <h2>Galerie <%= @galery.name %><h2>
     <h3>- Exhibitions -</h3>
     <% @galery.exhibitions.each do |exhibition| %>
     <ul>

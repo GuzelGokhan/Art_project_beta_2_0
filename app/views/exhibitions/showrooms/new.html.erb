@@ -1,3 +1,5 @@
+<% content_for :meta_title, @galery.name %>
+
 <div class="container">
 
   <%= simple_form_for(@showroom, url: exhibition_showrooms_path , method: :post) do |f| %>
