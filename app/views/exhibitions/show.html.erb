@@ -16,17 +16,18 @@
       <br>
 
 
-      <%= link_to  "Selected works", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
-      <%= link_to  "Press release", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Press release" %><br>
+      <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Selected works" %><br>
+      <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active", :title => "Press release" %><br>
       <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active", :title => "Video" %><br>
 
 
       <br>
       <br>
       <p>We invite you to experience our new online "Show room" for an immersive visit of this exhibition.</p>
-      <p><a href="#" target="_blank" rel="noopener">Go to the showroom</a></p>
-      <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %><br>
-      <span><%= link_to  "edit", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span>
+      <p><%= link_to "Go to the showroom", "#", :class => "btn btn-light" %></p>
+
+      <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %> |
+      <span><%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span>
     </div>
     <div class="col-12 col-sm-12 col-md-7 col-lg-7">
       <div class="text-center" style="margin-top: 5px;">
