@@ -1,9 +1,11 @@
-<h2>Galerie <%= @galery.name %><h2>
+<div class="container">
+    <h2 class="mb-4"><%= @galery.name %></h2>
     <h3>- Exhibitions -</h3>
-    <% @galery.exhibitions.each do |exhibition| %>
     <ul>
-      <li><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition), {:style=>'color:#FFFFFF; font-size:150%;'} %></li>
+      <% @galery.exhibitions.each do |exhibition| %>
+        <li class="mb-2"><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition), class: "btn btn-light" %></li>
+      <%end%>
     </ul>
-    <%end%>
-    <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-primary" %>
-    <%= link_to "back", galeries_path , :class => "btn btn-primary" %>
+    <%= link_to "new", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %>
+    <%= link_to "back", galeries_path , :class => "btn btn-light" %>
+</div>
