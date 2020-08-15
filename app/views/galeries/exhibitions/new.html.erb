@@ -3,9 +3,9 @@
   <%= simple_form_for(@exhibition, url: galery_exhibitions_path, method: :post) do |f| %>
   <h4> New Exhibition </h4>
   <%= f.input :name %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.submit class: 'btn btn-light' %>
   <%end%>
 
 </div>
