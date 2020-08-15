@@ -1,16 +1,17 @@
 
 <% content_for :meta_title, @galery.name %>
 
+<div class="container">
+<h2>Galerie <%= @galery.name %></h2>
 
-    <h2>Galerie <%= @galery.name %><h2>
-
-    <h3>- Exhibitions -</h3>
-    <ul>
-      <% @galery.exhibitions.each do |exhibition| %>
-        <li class="mb-2"><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition), class: "btn btn-light" %></li>
-      <%end%>
-    </ul>
+  <h3>- Exhibitions -</h3>
+  <ul>
+    <% @galery.exhibitions.each do |exhibition| %>
+    <li class="mb-2"><%= link_to "#{exhibition.name} -> #{exhibition.start_date} to #{exhibition.end_date}", exhibition_path(exhibition), class: "btn btn-light" %></li>
     <%end%>
-    <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-primary" %>
-    <%= link_to "back", galeries_path , :class => "btn btn-primary" %>
-
+  </ul>
+  <% if current_user == @galery.user %>
+    <%= link_to  "new", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %>
+  <% end %>
+  <%= link_to "back", galeries_path , :class => "btn btn-light" %>
+</div>
