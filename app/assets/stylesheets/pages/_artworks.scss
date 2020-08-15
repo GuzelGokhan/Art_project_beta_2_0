@@ -1,0 +1,98 @@
+.artworks-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 640px) {
+  .artworks-list {
+    padding: 30px 0;
+  }
+}
+
+.artworks-list .single-artwork {
+  width: 33.3%;
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+
+.artworks-list .single-artwork:last-child {
+  margin-right: auto;
+}
+
+@media all and (max-width: 800px) {
+  .artworks-list .single-artwork {
+    width: 50%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .artworks-list .single-artwork {
+    width: 100%;
+  }
+}
+
+.artworks-list .single-artwork .image-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  background-size: contain;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  background: #eee;
+  border: 20px solid #eee;
+  margin-bottom: 10px;
+}
+
+@media all and (max-width: 700px) {
+  .artworks-list .single-artwork .image-holder {
+    height: 200px;
+  }
+}
+
+.artworks-list .single-artwork .image-holder.exposition {
+  background: #eee;
+  border: 0;
+}
+
+.artworks-list .single-artwork .image-holder .opener {
+  position: absolute;
+  opacity: 0;
+  transition: 0.4s opacity;
+  cursor: pointer;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.67);
+}
+
+.artworks-list .single-artwork .image-holder:hover .opener {
+  opacity: 1;
+}
+
+.artworks-list .single-artwork img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+}
+
+.artworks-list .single-artwork p {
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+
+.artworks-list .single-artwork .title {
+  font-weight: bold;
+}
