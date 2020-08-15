@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :exhibitions do
-    resources :art_pieces, module: :exhibitions, only: [:new, :create]
+    resources :art_pieces, module: :exhibitions, only: [:new, :create, :index]
   end
   
   resources :showrooms do

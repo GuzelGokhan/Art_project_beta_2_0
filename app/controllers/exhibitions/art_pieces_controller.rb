@@ -1,5 +1,9 @@
 class Exhibitions::ArtPiecesController < ApplicationController
     before_action :set_exhibition
+  def index
+    @art_pieces = @exhibition.art_pieces
+  end
+  
   def new
     @art_piece = ArtPiece.new
   end
