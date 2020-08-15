@@ -40,14 +40,17 @@
               <div class="carousel-item ">
                 <%end%>
                 <div class="text-center" style="width: 100%;">
-                  <%= cl_image_tag art_piece.photo.key, class:"d-block  mx-auto", style:"left: auto;right: auto; width:400px;" %>
-                  <div class="carousel-caption"> <span class="exhibition_title">
+
+                  <%=link_to( cl_image_tag(art_piece.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px;" ), art_piece_path(art_piece) ) %>
+
+                  <div class="carousel-caption-exhibition"> <span class="exhibition_title">
                       <%= art_piece.name %></span><br>
 
                     <span class="date">
                       <%= art_piece.description %><br>
                       <%= art_piece.dimension %><br>
                     </span></div>
+
                 </div>
               </div>
               <%end%>

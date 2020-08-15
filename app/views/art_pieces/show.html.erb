@@ -1,9 +1,10 @@
-
 <div class="container">
   <h1><%= @art_piece.name %> </h1>
   <%= link_to "Back to #{@art_piece.exhibition.name}", @art_piece.exhibition, class: "btn btn-light" %>
- <div class="card text-center p-3 mb-2">
-  <%= @art_piece.description %>
- </div>
-  <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto" %>
+  <div class="card text-center p-3 mb-2">
+    <%= @art_piece.description %>
+  </div>
+  <div class="row">
+    <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto", style: "left: auto;right: auto; width:800px;" %>
+  </div>
 </div>

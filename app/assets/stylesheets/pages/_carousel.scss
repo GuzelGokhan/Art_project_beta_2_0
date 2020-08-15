@@ -23,3 +23,15 @@
 #carousel-control-next-ex {
   left: 70%;
 }
+
+.carousel-caption-exhibition {
+  position: relative;
+  right: auto;
+  bottom: 0px;
+  left: auto;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  color: #000;
+  text-align: center;
+}
