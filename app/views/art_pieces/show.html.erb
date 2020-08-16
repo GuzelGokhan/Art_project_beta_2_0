@@ -1,10 +1,12 @@
 <div class="container">
   <h1><%= @art_piece.name %> </h1>
-  <%= link_to "Back to #{@art_piece.exhibition.name}", @art_piece.exhibition, class: "btn btn-light" %>
   <div class="card text-center p-3 mb-2">
     <%= @art_piece.description %>
   </div>
-  <div class="row">
+  <div class="card text-center">
+    <span><%= link_to "Back", @art_piece.exhibition, class: "btn btn-light" %> | <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-light" %></span>
+  </div>
+  <div class="row" style="margin-top:10px;">
     <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto", style: "left: auto;right: auto; width:800px;" %>
   </div>
 </div>

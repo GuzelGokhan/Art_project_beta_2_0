@@ -1,5 +1,7 @@
 class Exhibitions::ArtPiecesController < ApplicationController
     before_action :set_exhibition
+    skip_before_action :authenticate_user!, only: [ :index ]
+    
   def index
     @art_pieces = @exhibition.art_pieces
   end

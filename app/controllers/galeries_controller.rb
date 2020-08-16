@@ -1,6 +1,7 @@
 class GaleriesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index , :show]
   before_action :set_galery, only: [:show,:edit,:update,:destroy]
+
   def index
     @galeries = Galery.all
   end

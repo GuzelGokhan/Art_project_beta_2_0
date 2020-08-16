@@ -1,7 +1,7 @@
 class ExhibitionsController < ApplicationController
 
   before_action :set_exhibition
-
+skip_before_action :authenticate_user!, only: [ :show, :video ]
   def show
     @showroom = Showroom.new
   end

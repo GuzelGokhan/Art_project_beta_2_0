@@ -5,7 +5,8 @@
       <h2><%= @galery.name %> </h2>
       <h6><%= @galery.location %></h6>
     </div>
-    <div class="card text-center"><span><%= link_to  "New Exhibition", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %> | <span><%= link_to "Edit Galery", edit_galery_path(@galery), :class => "btn btn-light"  %></span></div>
+    <div class="card text-center">
+      <span><%= link_to  "New Exhibition", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %> | <%= link_to "Edit Galery", edit_galery_path(@galery), :class => "btn btn-light"  %> | <%= link_to "Back", galeries_path, :class => "btn btn-light"  %> </span></div>
 
     <div class="row" style="margin-top:10px;">
       <div class="col-12 col-lg-9">
