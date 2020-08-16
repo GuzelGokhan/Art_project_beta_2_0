@@ -4,7 +4,7 @@
     <%= @art_piece.description %>
   </div>
   <div class="card text-center">
-    <span><%= link_to "Back", @art_piece.exhibition, class: "btn btn-light" %> | <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-light" %></span>
+    <span><%= link_to "Back", @art_piece.exhibition, class: "btn btn-light" %><% if user_signed_in? && current_user.eql?(@art_piece.user) %> | <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-light" %><%end%></span>
   </div>
   <div class="row" style="margin-top:10px;">
     <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto", style: "left: auto;right: auto; width:800px;" %>

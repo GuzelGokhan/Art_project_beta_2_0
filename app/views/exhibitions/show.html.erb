@@ -1,7 +1,8 @@
 <div class="container">
   <div class="card text-center">
+    <% if user_signed_in? && current_user.eql?(@exhibition.galery.user) %>
     <span><%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "btn btn-light" %> |
-      <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %> | <%= link_to  "Back", galery_path(@exhibition.galery) , :class => "btn btn-light" %></span>
+      <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "btn btn-light" %></span> | <%end%><span><%= link_to  "Back", galery_path(@exhibition.galery) , :class => "btn btn-light" %></span>
   </div>
   <div class="row" style="margin-top:10px;">
     <div class="row">
