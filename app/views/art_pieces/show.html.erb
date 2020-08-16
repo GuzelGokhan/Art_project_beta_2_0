@@ -1,10 +1,60 @@
+<% content_for :meta_title, "#{@art_piece.name}" %>
+<div class="navbar nav navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="nav-item">
+    <ul class="navbar-nav ml-auto">
+      <li><%= link_to "Home", root_path, class: "nav-link", style: "text-decoration: none; color: gray;"   %></li>
+      <li> <%= link_to "Back", exhibition_path(@art_piece.exhibition) , :class => "nav-link", style: "text-decoration: none; color: gray;"%></li>
+    </ul>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your galleries </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% current_user.galeries.each do |gallery| %>
+          <%= link_to gallery.name, gallery, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your exhibitions </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% current_user.galeries.each do |gallery| %>
+          <% gallery.exhibitions.each do |exhibition| %>
+          <% if current_user.eql?(exhibition.galery.user) %>
+          <%= link_to exhibition.name, exhibition, class: "dropdown-item" %>
+          <% end %>
+          <%end%>
+          <%end%>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Menu </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% if current_user.eql?(@art_piece.user) %>
+          <%= link_to "Add piece", new_exhibition_art_piece_path(@art_piece.exhibition), class: "dropdown-item" %>
+          <%= link_to "Edit piece", edit_art_piece_path(@art_piece), class: "dropdown-item" %>
+          <%end%>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
 <div class="container">
   <h1><%= @art_piece.name %> </h1>
   <div class="card text-center p-3 mb-2">
     <%= @art_piece.description %>
-  </div>
-  <div class="card text-center">
-    <span><%= link_to "Back", @art_piece.exhibition, class: "btn btn-light" %><% if user_signed_in? && current_user.eql?(@art_piece.user) %> | <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-light" %><%end%></span>
   </div>
   <div class="row" style="margin-top:10px;">
     <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto", style: "left: auto;right: auto; width:800px;" %>
