@@ -1,35 +1,82 @@
-  <% content_for :meta_title, @galery.name %>
+     <% content_for :meta_title, @galery.name %>
+     <div class="navbar nav navbar-expand-sm navbar-light navbar-lewagon">
+       <div class="nav-item">
+         <ul class="navbar-nav ml-auto">
+           <li><%= link_to "Home", root_path, class: "nav-link", style: "text-decoration: none; color: gray;"   %></li>
+           <li> <%= link_to "Back", galeries_path, :class => "nav-link", style: "text-decoration: none; color: gray;"%></li>
+         </ul>
+       </div>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
 
-  <div class="container">
-    <div class="card text-center p-3 mb-2">
-      <h2><%= @galery.name %> </h2>
-      <h6><%= @galery.location %></h6>
-    </div>
-    <div class="card text-center">
-      <% if user_signed_in?%>
-      <span><%= link_to  "New Exhibition", new_galery_exhibition_path(@galery) , :class => "btn btn-light" %><% if current_user.eql?(@galery.user)%> | <%= link_to "Edit Galery", edit_galery_path(@galery), :class => "btn btn-light"  %><%end%> |<%end%> <span><%= link_to "Back", galeries_path, :class => "btn btn-light"  %> </span></div>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+           <% if user_signed_in? %>
+           <li class="nav-item dropdown">
+             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your galleries </span>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+               <% current_user.galeries.each do |gallery| %>
+               <%= link_to gallery.name, gallery, class: "dropdown-item" %>
+               <% end %>
+             </div>
+           </li>
+           <li class="nav-item dropdown">
+             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your exhibitions </span>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+               <% current_user.galeries.each do |gallery| %>
+               <% gallery.exhibitions.each do |exhibition| %>
+               <% if current_user.eql?(exhibition.galery.user) %>
+               <%= link_to exhibition.name, exhibition, class: "dropdown-item" %>
+               <% end %>
+               <%end%>
+               <%end%>
+             </div>
+           </li>
+           <li class="nav-item dropdown">
+             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Menu </span>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+               <%= link_to  "New Exhibition", new_galery_exhibition_path(@galery) , :class => "dropdown-item" %>
+               <% if current_user.eql?(@galery.user)%>
+               <%= link_to "Edit Galery", edit_galery_path(@galery), :class => "dropdown-item"  %>
+               <%end%>
+               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+               <% else %>
+               <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+               <% end %>
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
 
-    <div class="row" style="margin-top:10px;">
-      <div class="col-12 col-lg-9">
-        <% @galery.exhibitions.each do |exhibition| %>
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="text-center">
-              <%=link_to( cl_image_tag(exhibition.art_pieces.last.photo.key, class: "img-fluid", style: "height:400px;"), exhibition_path(exhibition) )%>
-            </div>
-            <div class="text-center galerie_templon_work_block_data">
-              <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
-              <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
-              <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
-              <br>
-              <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
-              <br>
-              <br>
+     <div class="container">
+       <div class="card text-center">
+         <h2><%= @galery.name %> </h2>
+         <h6><%= @galery.location %></h6>
+       </div>
+
+       <div class="row" style="margin-top:10px;">
+         <div class="col-12 col-lg-9">
+           <% @galery.exhibitions.each do |exhibition| %>
+           <div class="row">
+             <div class="col-12 col-lg-6">
+               <div class="text-center">
+                 <%=link_to( cl_image_tag(exhibition.art_pieces.last.photo.key, class: "img-fluid", style: "height:400px;"), exhibition_path(exhibition) )%>
+               </div>
+               <div class="text-center galerie_templon_work_block_data">
+                 <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
+                 <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
+                 <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
+                 <br>
+                 <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
+                 <br>
+                 <br>
 
 
-            </div>
-          </div>
-        </div>
-        <%end%>
-      </div>
-    </div>
+               </div>
+             </div>
+           </div>
+           <%end%>
+         </div>
+       </div>
