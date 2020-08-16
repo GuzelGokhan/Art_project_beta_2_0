@@ -9,7 +9,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -47,8 +46,6 @@
   </div>
 </div>
 
-
-
 <div class="container">
   <div class="card text-center">
     <h4> New Showroom </h4>
@@ -59,5 +56,4 @@
   <%= f.submit 'Add', class: 'btn btn-light' %>
   <%= link_to  "Back", exhibition_path(@exhibition), class: 'btn btn-light'%>
   <%end%>
-
 </div>

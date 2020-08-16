@@ -1,133 +1,108 @@
-     <% content_for :meta_title, "#{@exhibition.galery.name} | #{@exhibition.name}" %>
-     <div class="navbar nav navbar-expand-sm navbar-light navbar-lewagon">
-       <div class="nav-item">
-         <ul class="navbar-nav ml-auto">
-           <li><%= link_to "Home", root_path, class: "nav-link", style: "text-decoration: none; color: gray;"   %></li>
-           <li> <%= link_to "Back", galery_path(@exhibition.galery) , :class => "nav-link", style: "text-decoration: none; color: gray;"%></li>
-         </ul>
-       </div>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto">
-           <% if user_signed_in? %>
-           <li class="nav-item dropdown">
-             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your galleries </span>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <% current_user.galeries.each do |gallery| %>
-               <%= link_to gallery.name, gallery, class: "dropdown-item" %>
-               <% end %>
-             </div>
-           </li>
-           <li class="nav-item dropdown">
-             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your exhibitions </span>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <% current_user.galeries.each do |gallery| %>
-               <% gallery.exhibitions.each do |exhibition| %>
-               <% if current_user.eql?(exhibition.galery.user) %>
-               <%= link_to exhibition.name, exhibition, class: "dropdown-item" %>
-               <% end %>
-               <%end%>
-               <%end%>
-             </div>
-           </li>
-           <li class="nav-item dropdown">
-             <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Menu </span>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <% if current_user.eql?(@exhibition.galery.user) %>
-               <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "dropdown-item" %>
-               <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "dropdown-item" %>
-               <%end%>
-               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-               <% else %>
-               <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-               <% end %>
-             </div>
-           </li>
-         </ul>
-       </div>
-     </div>
-     <div class="container">
-       <div class="row" style="margin-top:10px;">
-         <div class="row">
-           <div class="col-12 col-sm-6 col-md-5 col-lg-5">
-             <br>
-             <p class="exhibition_artistname exhibition_work_block_data_line_height"><%= @exhibition.artist %></p><br>
-             <span class="exhibition_title work_block_data_line_height">
-               <%= @exhibition.name %> </span><br>
-             <span class="date work_block_data_line_height">
-               <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
-             <span class="date work_block_data_line_height">
-               <%= @exhibition.galery.location %> </span> <br>
-             <br>
-             <br>
-
-
-             <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu text-light bg-dark nounderline", :title => "Selected works" %><br>
-             <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Press release" %><br>
-             <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Video" %><br>
-
-
-             <br>
-             <br>
-             <p>We invite you to experience our new online "<%= link_to "Show room", "#", class: "btn btn-light btn-sm"%>" for an immersive visit of this exhibition.</p>
-
-           </div>
-           <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-             <div class="text-center" style="margin-top: 5px;">
-
-               <div id="myCarousel" class="carousel slide" data-interval="false">
-                 <div class="carousel-inner center">
-                   <% @exhibition.art_pieces.each do |art_piece| %>
-                   <% if art_piece.eql?(@exhibition.art_pieces.first) %>
-                   <div class="carousel-item  active ">
-                     <% else %>
-                     <div class="carousel-item ">
-                       <%end%>
-                       <div class="text-center" style="width: 100%;">
-
-                         <%=link_to( cl_image_tag(art_piece.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px;" ), art_piece_path(art_piece) ) %>
-
-                         <div class="carousel-caption-exhibition"> <span class="exhibition_title">
-                             <%= art_piece.name %></span><br>
-
-                           <span class="date">
-                             <%= art_piece.description %><br>
-                             <%= art_piece.dimension %><br>
-                           </span></div>
-
-                       </div>
-                     </div>
-                     <%end%>
-
-
-
-
-
-
-
-
-
-
-
-
-                   </div>
-                   <% if @exhibition.art_pieces.first %>
-                   <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                   </a>
-                   <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                   </a>
-                   <%end%>
-                 </div>
-               </div>
-
-             </div>
-
-
-           </div>
-         </div>
-       </div>
+<% content_for :meta_title, "#{@exhibition.galery.name} | #{@exhibition.name}" %>
+<div class="navbar nav navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="nav-item">
+    <ul class="navbar-nav ml-auto">
+      <li><%= link_to "Home", root_path, class: "nav-link", style: "text-decoration: none; color: gray;"   %></li>
+      <li> <%= link_to "Back", galery_path(@exhibition.galery) , :class => "nav-link", style: "text-decoration: none; color: gray;"%></li>
+    </ul>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your galleries </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% current_user.galeries.each do |gallery| %>
+          <%= link_to gallery.name, gallery, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your exhibitions </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% current_user.galeries.each do |gallery| %>
+          <% gallery.exhibitions.each do |exhibition| %>
+          <% if current_user.eql?(exhibition.galery.user) %>
+          <%= link_to exhibition.name, exhibition, class: "dropdown-item" %>
+          <% end %>
+          <%end%>
+          <%end%>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Menu </span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% if current_user.eql?(@exhibition.galery.user) %>
+          <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "dropdown-item" %>
+          <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "dropdown-item" %>
+          <%end%>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-top:10px;">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-5">
+        <br>
+        <p class="exhibition_artistname exhibition_work_block_data_line_height"><%= @exhibition.artist %></p><br>
+        <span class="exhibition_title work_block_data_line_height">
+          <%= @exhibition.name %> </span><br>
+        <span class="date work_block_data_line_height">
+          <%= @exhibition.start_date %> to <%= @exhibition.end_date %> </span><br>
+        <span class="date work_block_data_line_height">
+          <%= @exhibition.galery.location %> </span> <br>
+        <br>
+        <br>
+        <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu text-light bg-dark nounderline", :title => "Selected works" %><br>
+        <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Press release" %><br>
+        <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Video" %><br>
+        <br>
+        <br>
+        <p>We invite you to experience our new online "<%= link_to "Show room", "#", class: "btn btn-light btn-sm"%>" for an immersive visit of this exhibition.</p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+        <div class="text-center" style="margin-top: 5px;">
+          <div id="myCarousel" class="carousel slide" data-interval="false">
+            <div class="carousel-inner center">
+              <% @exhibition.art_pieces.each do |art_piece| %>
+              <% if art_piece.eql?(@exhibition.art_pieces.first) %>
+              <div class="carousel-item  active ">
+                <% else %>
+                <div class="carousel-item ">
+                  <%end%>
+                  <div class="text-center" style="width: 100%;">
+                    <%=link_to( cl_image_tag(art_piece.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px;" ), art_piece_path(art_piece) ) %>
+                    <div class="carousel-caption-exhibition"> <span class="exhibition_title">
+                        <%= art_piece.name %></span><br>
+                      <span class="date">
+                        <%= art_piece.description %><br>
+                        <%= art_piece.dimension %><br>
+                      </span></div>
+                  </div>
+                </div>
+                <%end%>
+              </div>
+              <% if @exhibition.art_pieces.first %>
+              <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
