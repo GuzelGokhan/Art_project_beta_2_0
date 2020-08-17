@@ -63,12 +63,12 @@
             <%= @exhibition.galery.location %> </span> <br>
           <br>
           <br>
-          <%= link_to  "Want to buy ?", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu text-light bg-dark nounderline", :title => "Selected works" %><br>
+          <%= link_to  "Select Works", exhibition_art_pieces_path(@exhibition) , :class => "expoDetailMenu text-light bg-dark nounderline", :title => "Selected works" %><br>
           <%= link_to  "Press release", "#" , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Press release" %><br>
-          <%= link_to  "Video", video_path(@exhibition) , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Video" %><br>
+          <%= link_to  "About", video_path(@exhibition) , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Video" %><br>
           <br>
           <br>
-          <p>We invite you to experience our new online "<%= link_to "Show room", "#", class: "btn btn-light btn-sm"%>" for an immersive visit of this exhibition.</p>
+          <p>We invite you to experience our new "<%= link_to "Show room", "#", class: "expoDetailMenu  active text-light bg-dark nounderline"%>" for an virtual visit of this exhibition.</p>
         </div>
         <div class="col-12 col-sm-12 col-md-7 col-lg-7">
           <div class="container" style="margin-top: 10px; margin-bottom: 10px;">
@@ -115,3 +115,4 @@
       </div>
     </div>
   </div>
+</div>
