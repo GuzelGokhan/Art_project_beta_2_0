@@ -68,6 +68,13 @@
       <div class="text-center" style="margin-top: 30px;">
         <div id="myCarousel" class="carousel slide" data-interval="false">
           <div class="carousel-inner center">
+            <% if @exhibition.art_pieces.count.eql?(0) %>
+            <div class="carousel-item active ">
+              <div class="text-center">
+                <%=link_to( cl_image_tag(@exhibition.photo.key, class: "d-block  mx-auto", style: "left: auto;right: auto; height:400px; max-width:400px" ), "#") %>
+              </div>
+            </div>
+            <%else%>
             <% @exhibition.art_pieces.each do |art_piece| %>
             <% if art_piece.eql?(@exhibition.art_pieces.first) %>
             <div class="carousel-item  active ">
@@ -86,14 +93,15 @@
               </div>
               <%end%>
             </div>
-            <% if @exhibition.art_pieces.first %>
+            <%end%>
+
             <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" id="carousel-control-prev-ex">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
             <a class="carousel-control-next" href="#myCarousel" data-slide="next" id="carousel-control-next-ex">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
-            <%end%>
+
           </div>
         </div>
       </div>

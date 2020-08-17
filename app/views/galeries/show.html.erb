@@ -50,28 +50,28 @@
     <h2><%= @galery.name %> </h2>
     <h6><%= @galery.location %></h6>
   </div>
-  <div class="container" style="margin-top:20px;">
-    <div class="row">
-      <div class="col-12 col-lg-9">
-        <% @galery.exhibitions.each do |exhibition| %>
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="text-center">
-              <%=link_to( cl_image_tag(exhibition.photo.key, class: "img-fluid", style: "max-height:400px; max-witdh:500px"), exhibition_path(exhibition) )%>
-            </div>
-            <div class="text-center galerie_templon_work_block_data">
-              <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
-              <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
-              <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
-              <br>
-              <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
-              <br>
-              <br>
-            </div>
-          </div>
-        </div>
-        <%end%>
+  <div class="row" style="margin-top:20px;">
+
+
+    <% @galery.exhibitions.each do |exhibition| %>
+
+    <div class="col-12 col-lg-4">
+      <div class="text-center">
+        <%=link_to( cl_image_tag(exhibition.photo.key, class: "img-fluid", style: "left: auto;right: auto; height:400px; max-width:400px"), exhibition_path(exhibition) )%>
+      </div>
+      <div class="text-center galerie_templon_work_block_data">
+        <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
+        <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
+        <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
+        <br>
+        <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
+        <br>
+        <br>
       </div>
     </div>
+
+    <%end%>
+
+
   </div>
 </div>
