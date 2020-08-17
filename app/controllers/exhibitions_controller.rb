@@ -43,6 +43,6 @@ skip_before_action :authenticate_user!, only: [ :show, :video ]
   end
 
   def params_exhibition
-    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video)
+    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video, :photo)
   end
 end

@@ -23,12 +23,8 @@
       <li class="nav-item dropdown">
         <span class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" data-toggle="aria-haspopup" data-aria-expanded='false'> Your exhibitions </span>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <% current_user.galeries.each do |gallery| %>
-          <% gallery.exhibitions.each do |exhibition| %>
-          <% if current_user.eql?(exhibition.galery.user) %>
+          <% current_user.exhibitions.each do |exhibition| %>
           <%= link_to exhibition.name, exhibition, class: "dropdown-item" %>
-          <% end %>
-          <%end%>
           <%end%>
         </div>
       </li>

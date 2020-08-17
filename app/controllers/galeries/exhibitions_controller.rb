@@ -23,7 +23,7 @@ class Galeries::ExhibitionsController < ApplicationController
   end
 
   def params_exhibition
-    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video, :galery_id)
+    params.require(:exhibition).permit(:name, :start_date, :end_date, :artist, :video, :galery_id, :photo).merge(user: current_user)
   end
 
 end
