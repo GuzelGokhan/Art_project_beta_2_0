@@ -1,11 +1,12 @@
-.card {
+.card-title {
   margin: 0 auto 80px;
   background: #fff;
   position: relative;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 50, 0.5);
+  border-radius: 5px;
 }
 
-.card::after {
+.card-title::after {
   content: '';
   height: 40px;
   width: 250px;
@@ -14,9 +15,10 @@
   top: -8px;
   left: -8px;
   z-index: -1;
+  border-radius: 5px;
 }
 
-.card::before {
+.card-title::before {
   content: '';
   height: 40px;
   width: 250px;
@@ -25,4 +27,13 @@
   bottom: -8px;
   right: -8px;
   z-index: -1;
+  border-radius: 5px;
+}
+
+.card {
+  margin: 0 auto 80px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 50, 0.5);
+  border-radius: 5px;
 }

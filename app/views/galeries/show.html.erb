@@ -46,7 +46,7 @@
 </div>
 
 <div class="container">
-  <div class="card text-center p-2 mb-1" style="margin-top:20px">
+  <div class="card-title text-center p-2 mb-1" style="margin-top:20px">
     <h2><%= @galery.name %> </h2>
     <h6><%= @galery.location %></h6>
   </div>
@@ -56,17 +56,21 @@
     <% @galery.exhibitions.each do |exhibition| %>
 
     <div class="col-12 col-lg-4">
-      <div class="text-center">
-        <%=link_to( cl_image_tag(exhibition.photo.key, class: "img-fluid", style: "left: auto;right: auto; height:400px; max-width:400px"), exhibition_path(exhibition) )%>
-      </div>
-      <div class="text-center galerie_templon_work_block_data">
-        <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
-        <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
-        <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
-        <br>
-        <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
-        <br>
-        <br>
+      <div class="card">
+        <div class="container" style="padding: 10px 5px 0 5px;">
+          <div class="text-center">
+            <%=link_to( cl_image_tag(exhibition.photo.key, class: "img-fluid", style: "height:400px; width:300px"), exhibition_path(exhibition) )%>
+          </div>
+          <div class="text-center galerie_templon_work_block_data">
+            <span class="exhibition_artistname exhibition_work_block_data_line_height"><%= exhibition.artist %></span><br>
+            <span class="exhibitions_exhibition_title exhibition_work_block_data_line_height"> <%= exhibition.name %></span><br>
+            <span class="exhibition_date exhibition_work_block_data_line_height"><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
+            <br>
+            <span class="exhibition_date exhibition_work_block_data_line_height"><%=@galery.location%></span>
+            <br>
+            <br>
+          </div>
+        </div>
       </div>
     </div>
 
