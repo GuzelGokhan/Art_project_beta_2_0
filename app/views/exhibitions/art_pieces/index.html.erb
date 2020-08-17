@@ -48,25 +48,27 @@
   </div>
 </div>
 <div class="container">
-  <div class="card text-center">
+  <div class="card text-center p-2 mb-1" style="margin-top:20px">
     <h1><%= @art_pieces.first.exhibition.name %> </h1>
     <h6><%= @art_pieces.first.exhibition.start_date %> to <%= @art_pieces.first.exhibition.end_date %></h6>
   </div>
-  <div class="artworks-list">
-    <% @art_pieces.each do |art_piece| %>
-    <div class="single-artwork">
-      <div class="image-holder exposition">
-        <%= cl_image_tag art_piece.photo.key %>
-        <div class="opener">
-          <%= link_to "view", art_piece_path(art_piece) , class:"nounderline text-dark"%>
+  <div class="container" style="margin-top:20px;">
+    <div class="artworks-list">
+      <% @art_pieces.each do |art_piece| %>
+      <div class="single-artwork">
+        <div class="image-holder exposition">
+          <%= cl_image_tag art_piece.photo.key %>
+          <div class="opener">
+            <%= link_to "view", art_piece_path(art_piece) , class:"nounderline text-dark"%>
+          </div>
+        </div>
+        <div class="info">
+          <p class="title"><%= art_piece.name %></p>
+          <p><%= art_piece.dimension %></p>
+          <p><%= art_piece.description %></p>
         </div>
       </div>
-      <div class="info">
-        <p class="title"><%= art_piece.name %></p>
-        <p><%= art_piece.dimension %></p>
-        <p><%= art_piece.description %></p>
-      </div>
+      <%end%>
     </div>
-    <%end%>
   </div>
 </div>

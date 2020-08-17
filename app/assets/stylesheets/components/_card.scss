@@ -1,0 +1,28 @@
+.card {
+  margin: 0 auto 80px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 50, 0.5);
+}
+
+.card::after {
+  content: '';
+  height: 40px;
+  width: 250px;
+  background-color: lightcoral;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  z-index: -1;
+}
+
+.card::before {
+  content: '';
+  height: 40px;
+  width: 250px;
+  background-color: lightcoral;
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  z-index: -1;
+}

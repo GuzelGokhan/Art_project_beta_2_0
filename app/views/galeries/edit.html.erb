@@ -46,14 +46,16 @@
   </div>
 </div>
 <div class="container">
-  <div class="card text-center">
+  <div class="card text-center p-2 mb-1" style="margin-top:20px">
     <h4> Edit Galery </h4>
   </div>
-  <%= simple_form_for @galery do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Add', class: 'btn btn-light'%>
-  <%= link_to "Back", galery_path(@galery), class: 'btn btn-light'%>
-  <%end%>
+  <div class="container" style="margin-top:20px;">
+    <%= simple_form_for @galery do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Add', class: 'btn btn-light'%>
+    <%= link_to "Back", galery_path(@galery), class: 'btn btn-light'%>
+    <%end%>
+  </div>
 </div>

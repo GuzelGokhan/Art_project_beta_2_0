@@ -47,13 +47,15 @@
 </div>
 
 <div class="container">
-  <div class="card text-center">
+  <div class="card text-center p-2 mb-1" style="margin-top:20px">
     <h4> New Showroom </h4>
   </div>
-  <%= simple_form_for(@showroom, url: exhibition_showrooms_path , method: :post) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo%>
-  <%= f.submit 'Add', class: 'btn btn-light' %>
-  <%= link_to  "Back", exhibition_path(@exhibition), class: 'btn btn-light'%>
-  <%end%>
+  <div class="container" style="margin-top:20px;">
+    <%= simple_form_for(@showroom, url: exhibition_showrooms_path , method: :post) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo%>
+    <%= f.submit 'Add', class: 'btn btn-light' %>
+    <%= link_to  "Back", exhibition_path(@exhibition), class: 'btn btn-light'%>
+    <%end%>
+  </div>
 </div>
