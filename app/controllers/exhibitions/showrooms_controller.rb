@@ -10,7 +10,7 @@ class Exhibitions::ShowroomsController < ApplicationController
     @showroom.exhibition = @exhibition
     if @showroom.save
       flash[:success] = "Showroom successfully created"
-      redirect_to @showroom
+      render(template: 'showrooms/show')
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -24,7 +24,7 @@ class Exhibitions::ShowroomsController < ApplicationController
   end
 
   def params_showroom
-    params.require(:showroom).permit(:name,:exhibition_id)
+    params.require(:showroom).permit(:name,:exhibition_id, :photo)
   end
   
 end

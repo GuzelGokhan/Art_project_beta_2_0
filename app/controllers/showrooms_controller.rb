@@ -1,14 +1,29 @@
 class ShowroomsController < ApplicationController
+  before_action :set_showroom, only: [:show,:destroy, :edit, :update]
 
-  before_action :set_showroom, only: [:destroy, :show]
-skip_before_action :authenticate_user!, only: [ :index ,:show]
   def index
     @showrooms = Showroom.all
   end
   
   def show
-    @art_piece = ArtPiece.new
+    
   end
+
+  def edit
+  
+  end
+  
+def update
+    if @showroom.update_attributes(params_showroom)
+      flash[:success] = "Showroom was successfully updated"
+      redirect_to @showroom
+    else
+      flash[:error] = "Something went wrong"
+      render 'edit'
+    end
+end
+
+  
   
   def destroy
     if @showroom.destroy
@@ -25,5 +40,9 @@ skip_before_action :authenticate_user!, only: [ :index ,:show]
 
   def set_showroom
     @showroom = Showroom.find(params[:id])
+  end
+
+  def params_showroom
+    params.require(:showroom).permit(:name,:photo)
   end
 end
