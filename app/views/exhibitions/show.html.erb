@@ -34,6 +34,7 @@
           <% if current_user.eql?(@exhibition.user) %>
           <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "dropdown-item" %>
           <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "dropdown-item" %>
+          <%= link_to "Create Showroom", new_exhibition_showroom_path(@exhibition), :class => "dropdown-item" %>
           <%end%>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>
@@ -68,7 +69,7 @@
           <%= link_to  "About", video_path(@exhibition) , :class => "expoDetailMenu  active text-light bg-dark nounderline", :title => "Video" %><br>
           <br>
           <br>
-          <p>We invite you to experience our new "<%= link_to "Show room", "#", class: "expoDetailMenu  active text-light bg-dark nounderline"%>" for an virtual visit of this exhibition.</p>
+          <p>We invite you to experience our new "<%= link_to "Show room", showroom_path(@exhibition), class: "expoDetailMenu  active text-light bg-dark nounderline"%>" for an virtual visit of this exhibition.</p>
         </div>
         <div class="col-12 col-sm-12 col-md-7 col-lg-7">
           <div class="container" style="margin-top: 10px; margin-bottom: 10px;">

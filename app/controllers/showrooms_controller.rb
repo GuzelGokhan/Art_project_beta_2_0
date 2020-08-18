@@ -1,13 +1,12 @@
 class ShowroomsController < ApplicationController
+  before_action :set_showroom, only: [:show,:destroy]
 
-  before_action :set_showroom, only: [:destroy, :show]
-skip_before_action :authenticate_user!, only: [ :index ,:show]
   def index
     @showrooms = Showroom.all
   end
   
   def show
-    @art_piece = ArtPiece.new
+    
   end
   
   def destroy
