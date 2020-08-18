@@ -1,5 +1,5 @@
 class ShowroomsController < ApplicationController
-  before_action :set_showroom, only: [:show,:destroy]
+  before_action :set_showroom, only: [:show,:destroy, :edit, :update]
 
   def index
     @showrooms = Showroom.all
@@ -8,6 +8,22 @@ class ShowroomsController < ApplicationController
   def show
     
   end
+
+  def edit
+  
+  end
+  
+def update
+    if @showroom.update_attributes(params_showroom)
+      flash[:success] = "Showroom was successfully updated"
+      redirect_to @showroom
+    else
+      flash[:error] = "Something went wrong"
+      render 'edit'
+    end
+end
+
+  
   
   def destroy
     if @showroom.destroy
@@ -24,5 +40,9 @@ class ShowroomsController < ApplicationController
 
   def set_showroom
     @showroom = Showroom.find(params[:id])
+  end
+
+  def params_showroom
+    params.require(:showroom).permit(:name,:photo)
   end
 end
