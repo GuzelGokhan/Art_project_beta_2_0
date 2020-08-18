@@ -68,8 +68,8 @@
           <p>We invite you to experience our new "<%= link_to "Show room", "#", class: "expoDetailMenu  active text-light bg-dark nounderline"%>" for an immersive visit of this exhibition.</p>
         </div>
         <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-          <div class="container" style="padding: 30px 20px 20px 50px">
-            <iframe width="560" height="315" src=<%=@exhibition.video %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> <br>
+          <div class="container">
+            <iframe class="w-100" style="margin-top: 20px;" width=" 560" height="315" src=<%=@exhibition.video %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> <br>
             <br>
           </div>
         </div>

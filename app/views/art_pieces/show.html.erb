@@ -51,8 +51,8 @@
     <%= @art_piece.description %>
   </div>
   <div class="container" style="margin-top:20px;">
-    <div class="row">
-      <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto", style: "left: auto;right: auto; width:800px;" %>
+    <div class="card">
+      <%= cl_image_tag @art_piece.photo.key , class: "d-block  mx-auto w-100" %>
     </div>
   </div>
 </div>

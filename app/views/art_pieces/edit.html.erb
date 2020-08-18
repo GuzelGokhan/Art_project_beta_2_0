@@ -50,7 +50,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :dimension %>
-    <%= f.input :photo %>
+    <%= f.input :photo , class:'btn btn-light' %>
     <%= f.submit "Add", class: 'btn btn-light' %>
     <%= link_to "Back", exhibition_path(@art_piece.exhibition), class: 'btn btn-light'%>
     <%end%>

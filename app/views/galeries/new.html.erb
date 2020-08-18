@@ -50,7 +50,7 @@
     <%= simple_form_for @galery do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file ,class:'btn btn-light'%>
     <%= f.submit 'Add', class: 'btn btn-light'%>
     <%= link_to "Back", galeries_path, class: 'btn btn-light'%>
     <%end%>
