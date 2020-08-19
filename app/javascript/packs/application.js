@@ -33,3 +33,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initFlatpickr()
 });
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
