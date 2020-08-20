@@ -10,12 +10,15 @@ puts "starting the seed"
 puts Faker::Name.name
 # sabina = User.create(email: "example@test.com", password: "AZERTY")
 
-# galery_1 = Galery.create(user: sabina, name: "Da Silva", location: "Paris")
-# galery_2 = Galery.create(user: sabina, name: "Templon", location: "Paris")
-# galery_3 = Galery.create(user: sabina, name: "Almine Reich", location: "Berlin")
-# galery_4 = Galery.create(user: sabina, name: "Da Silva", location: "Brussels")
+galery_1 = Galery.create(user: sabina, name: "Da Silva", location: "Paris")
+galery_2 = Galery.create(user: sabina, name: "Templon", location: "Paris")
+galery_3 = Galery.create(user: sabina, name: "Almine Reich", location: "Berlin")
+galery_4 = Galery.create(user: sabina, name: "Da Silva", location: "Brussels")
 
-# exhibition_1 = Exhibition.create(galery: galery_1, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_1)
+exhibition_1 = Exhibition.create(galery: galery_1, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_1)
+exhibition_2 = Exhibition.create(galery: galery_2, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_2)
+exhibition_3 = Exhibition.create(galery: galery_3, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_3)
+exhibition_4 = Exhibition.create(galery: galery_4, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_4)
 
 # showroom_1 = Showroom.create(exhibition:exhibition_1, name: Faker::Name)
 # showroom_2 = Showroom.create(exhibition: exhibition_2, name: Faker::Name)
