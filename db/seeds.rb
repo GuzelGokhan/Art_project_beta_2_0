@@ -8,17 +8,26 @@ require "faker"
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "starting the seed"
 puts Faker::Name.name
-# sabina = User.create(email: "example@test.com", password: "AZERTY")
+
+sabina = User.create(email: "example@test.com", password: "AZERTY")
 
 galery_1 = Galery.create(user: sabina, name: "Da Silva", location: "Paris")
 galery_2 = Galery.create(user: sabina, name: "Templon", location: "Paris")
 galery_3 = Galery.create(user: sabina, name: "Almine Reich", location: "Berlin")
-galery_4 = Galery.create(user: sabina, name: "Da Silva", location: "Brussels")
 
-exhibition_1 = Exhibition.create(galery: galery_1, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_1)
-exhibition_2 = Exhibition.create(galery: galery_2, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_2)
-exhibition_3 = Exhibition.create(galery: galery_3, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_3)
-exhibition_4 = Exhibition.create(galery: galery_4, name: Faker::Name.name, start_date: date, end_date: date, artist: artist, user:sabina, galery: galery_4)
+exhibition_1 = Exhibition.create(name: Faker::Name.name, start_date: 2020.09.05, end_date: 2020.10.26, artist: "Franz Ackermann", user:sabina, galery: galery_4)
+
+exhibition_2 = Exhibition.create(name: Faker::Name.name, start_date: 2020.04.05, end_date: 2020.08.30, artist: "Chiharu Shiota", user:sabina, galery: galery_2)
+exhibition_3 = Exhibition.create(name: Faker::Name.name, start_date: 2019.08.15, end_date: 2019.11.25, artist: "Oda Jaune", user:sabina, galery: galery_2)
+exhibition_4 = Exhibition.create(name: Faker::Name.name, start_date: 2020.08.17, end_date: 2020.11.30, artist: "Will Cotton", user:sabina, galery: galery_2)
+exhibition_5 = Exhibition.create(name: Faker::Name.name, start_date: 2020.09.07, end_date: 2020.10.27, artist: "Prune Nourry", user:sabina, galery: galery_2)
+exhibition_6 = Exhibition.create(name: Faker::Name.name, start_date: 2020.05.18, end_date: 2020.06.30, artist: "Kehinde Wiley", user:sabina, galery: galery_2)
+exhibition_7 = Exhibition.create(name: Faker::Name.name, start_date: 2018.08.08, end_date: 2018.10.24, artist: "Rene Wirths", user:sabina, galery: galery_2)
+
+exhibition_8 = Exhibition.create(name: Faker::Name.name, start_date: 2019.07.10, end_date: 2019.12.26, artist: "Billie Zangewa", user:sabina, galery: galery_3)
+exhibition_9 = Exhibition.create(name: Faker::Name.name, start_date: 2020.03.17, end_date: 2020.05.15, artist: "Norbert Bisky", user:sabina, galery: galery_3)
+exhibition_10 = Exhibition.create(name: Faker::Name.name, start_date: 2020.01.09, end_date: 2020.02.27, artist: "Jan Fabre", user:sabina, galery: galery_3)
+exhibition_11 = Exhibition.create(name: Faker::Name.name, start_date: 2020.03.12, end_date: 2020.06.06, artist: "Daniel Dezeuze", user:sabina, galery: galery_3)
 
 # showroom_1 = Showroom.create(exhibition:exhibition_1, name: Faker::Name)
 # showroom_2 = Showroom.create(exhibition: exhibition_2, name: Faker::Name)
