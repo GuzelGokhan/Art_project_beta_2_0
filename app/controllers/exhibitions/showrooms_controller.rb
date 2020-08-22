@@ -24,7 +24,7 @@ class Exhibitions::ShowroomsController < ApplicationController
   end
 
   def params_showroom
-    params.require(:showroom).permit(:name,:exhibition_id, :photo)
+    params.require(:showroom).permit(:name,:exhibition_id, :background)
   end
   
 end

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card-title text-center p-2 mb-1" style="margin-top:20px">
+    <h2><%= @galery.name %> </h2>
+    <h6><%= @galery.location %></h6>
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <% @galery.exhibitions.each do |exhibition| %>
+    <div class="box">
+      <div class="imgBx">
+        <%=link_to( cl_image_tag(exhibition.photo.key, class: "img-fluid", style: "height:400px; width:300px"), exhibition_path(exhibition) )%>
+      </div>
+      <div class="content">
+        <h2><%= exhibition.artist %>
+          <br><span><%= exhibition.name %></span>
+          <br><span><%= exhibition.start_date %> to <%= exhibition.end_date %></span>
+          <br><span><%=@galery.location%></span>
+        </h2>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>

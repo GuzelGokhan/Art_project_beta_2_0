@@ -43,6 +43,6 @@ end
   end
 
   def params_showroom
-    params.require(:showroom).permit(:name,:photo)
+    params.require(:showroom).permit(:name, :background)
   end
 end

@@ -34,6 +34,11 @@
           <% if current_user.eql?(@exhibition.user) %>
           <%= link_to  "Add Piece", new_exhibition_art_piece_path(@exhibition) , :class => "dropdown-item" %>
           <%= link_to  "Edit Exhibition", edit_exhibition_path(@exhibition) , :class => "dropdown-item" %>
+          <% if @exhibition.showrooms.count.eql?(0) %>
+          <%= link_to "Create Showroom", new_exhibition_showroom_path(@exhibition), :class => "dropdown-item" %>
+          <%else%>
+          <%= link_to "Edit Showroom", edit_showroom_path(@exhibition.showrooms.first), :class => "dropdown-item" %>
+          <%end%>
           <%end%>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>

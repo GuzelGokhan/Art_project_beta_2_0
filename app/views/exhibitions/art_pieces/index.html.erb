@@ -56,21 +56,10 @@
           <%= cl_image_tag art_piece.photo.key %>
           <div class="opener">
             <a class="nounderline text-dark" data-toggle="modal" data-target="#exampleModal">
-              view
+              <%= link_to  "view", art_piece_path(art_piece), class:"nounderline text-dark" %>
             </a>
           </div>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <%= cl_image_tag art_piece.photo.key%>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
         <div class="info">
           <p class="title"><%= art_piece.name %></p>

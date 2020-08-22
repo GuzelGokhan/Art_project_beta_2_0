@@ -34,6 +34,7 @@
           <% if current_user.eql?(@showroom.exhibition.user) %>
           <%= link_to  "Add Piece", new_exhibition_art_piece_path(@showroom.exhibition) , :class => "dropdown-item" %>
           <%= link_to  "Edit Showroom", edit_showroom_path(@showroom) , :class => "dropdown-item" %>
+          <%= link_to  "Delete Showroom", showroom_path(@showroom), method: :delete, data: {confirm: "Are you sure?"} %>
           <%end%>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>
@@ -49,14 +50,48 @@
     <h1> <%= @showroom.name %></h1>
   </div>
 </div>
+<div class=container style="margin-top:20px">
+  <div class="row">
+    <div class="col-4">
+      <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pick an image
+        </button>
+        <div class="dropdown-menu">
+          <% @showroom.art_pieces.each do |art_piece| %>
+          <%= art_piece.name %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pick an image
+        </button>
+        <div class="dropdown-menu">
+          <% @showroom.art_pieces.each do |art_piece| %>
+          <%= art_piece.name %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pick an image
+        </button>
+        <div class="dropdown-menu">
+          <% @showroom.art_pieces.each do |art_piece| %>
+          <%= art_piece.name %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container" style="margin-top:20px">
   <div class="card">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <%= image_tag @showroom.background %>
   </div>
 </div>
