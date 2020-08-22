@@ -37,8 +37,18 @@ exhibition_11 = Exhibition.create(name: Faker::Name.name, start_date: "2020.03.1
 puts "creating a showroom"
 
 showroom_1 = Showroom.create(exhibition: exhibition_1, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+
 showroom_2 = Showroom.create(exhibition: exhibition_2, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
-showroom_3 = Showroom.create(exhibition: exhibition_3, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_2 = Showroom.create(exhibition: exhibition_3, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_2 = Showroom.create(exhibition: exhibition_4, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_2 = Showroom.create(exhibition: exhibition_5, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_2 = Showroom.create(exhibition: exhibition_6, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_2 = Showroom.create(exhibition: exhibition_7, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+
+showroom_3 = Showroom.create(exhibition: exhibition_8, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_3 = Showroom.create(exhibition: exhibition_9, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_3 = Showroom.create(exhibition: exhibition_10, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
+showroom_3 = Showroom.create(exhibition: exhibition_11, name: Faker::Name, created_at:"2020.08.22" , updated_at: "2020.08.22")
 
 
 
