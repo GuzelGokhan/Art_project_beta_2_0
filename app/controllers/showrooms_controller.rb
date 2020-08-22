@@ -1,5 +1,6 @@
 class ShowroomsController < ApplicationController
   before_action :set_showroom, only: [:show,:destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [ :show ]
 
   def index
     @showrooms = Showroom.all

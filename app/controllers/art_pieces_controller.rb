@@ -1,6 +1,6 @@
 class ArtPiecesController < ApplicationController
   before_action :set_art_piece
-skip_before_action :authenticate_user!, only: [ :show ]
+  skip_before_action :authenticate_user!, only: [ :show ]
   def show
     
   end
