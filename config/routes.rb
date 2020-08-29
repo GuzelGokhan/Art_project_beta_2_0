@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :art_pieces, module: :showrooms, only: [:show, :index]
   end
 
-  resources :art_pieces, only: [:show, :edit, :update]
+  resources :art_pieces, only: [:show, :edit, :update, :destroy]
 end

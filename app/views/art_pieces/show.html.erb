@@ -34,6 +34,8 @@
           <% if current_user.eql?(@art_piece.user) %>
           <%= link_to "Add piece", new_exhibition_art_piece_path(@art_piece.exhibition), class: "dropdown-item" %>
           <%= link_to "Edit piece", edit_art_piece_path(@art_piece), class: "dropdown-item" %>
+          <%= link_to 'Delete', art_piece_path(@art_piece),
+            data: {:confirm => 'Are you sure?'}, :method => :delete ,class: "dropdown-item"%>
           <%end%>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>

@@ -1,5 +1,5 @@
 class ArtPiecesController < ApplicationController
-  before_action :set_art_piece
+  before_action :set_art_piece, onyl: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :show ]
   def show
     
@@ -7,6 +7,17 @@ class ArtPiecesController < ApplicationController
   
   def edit
   end
+
+  def destroy
+    if @art_piece.destroy
+      flash[:success] = 'ArtPiece was successfully deleted.'
+      redirect_to galeries_url
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to art_pieces_url
+    end
+  end
+  
 
   def update
       if @art_piece.update_attributes(params_art_piece)
