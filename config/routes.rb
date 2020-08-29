@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   get '/exhibitions/:id/video', to: 'exhibitions#video', as: :video
+  get 'about', to: 'pages#about', as: :about
+
 
   resources :galeries do 
     resources :exhibitions, module: :galeries, only: [:new, :create, :show]
@@ -23,3 +25,5 @@ Rails.application.routes.draw do
 
   resources :art_pieces, only: [:show, :edit, :update]
 end
+
+
