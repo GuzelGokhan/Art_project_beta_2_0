@@ -56,7 +56,9 @@
           <%= cl_image_tag art_piece.photo.key %>
           <div class="opener">
             <a class="nounderline text-dark" data-toggle="modal" data-target="#exampleModal">
+
               <%= link_to  "view", art_piece_path(art_piece), class:"nounderline text-dark" %>
+
             </a>
           </div>
 
@@ -65,6 +67,11 @@
           <p class="title"><%= art_piece.name %></p>
           <p><%= art_piece.dimension %></p>
           <p><%= art_piece.description %></p>
+          <% if art_piece.available %>
+          <p style="color:green"><%= art_piece.price%> €</p>
+          <%else%>
+          <p style="color:red">SOLD</p>
+          <%end%>
         </div>
       </div>
       <%end%>

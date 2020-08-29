@@ -21,7 +21,7 @@ class ArtPiecesController < ApplicationController
   private  
 
   def params_art_piece
-    params.require(:art_piece).permit(:name,:description,:dimension,:photo)
+    params.require(:art_piece).permit(:name,:description,:dimension, :price,:photo, :available)
   end
 
   def set_art_piece

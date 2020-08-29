@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_085740) do
+ActiveRecord::Schema.define(version: 2020_08_29_101832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2020_08_22_085740) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "art_piece_showrooms", force: :cascade do |t|
+    t.bigint "art_piece_id", null: false
+    t.bigint "showroom_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["art_piece_id"], name: "index_art_piece_showrooms_on_art_piece_id"
+    t.index ["showroom_id"], name: "index_art_piece_showrooms_on_showroom_id"
+  end
+
   create_table "art_pieces", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
@@ -44,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_08_22_085740) do
     t.bigint "exhibition_id", null: false
     t.string "description"
     t.string "dimension"
+    t.integer "price"
+    t.boolean "available"
     t.index ["exhibition_id"], name: "index_art_pieces_on_exhibition_id"
     t.index ["user_id"], name: "index_art_pieces_on_user_id"
   end
@@ -93,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_08_22_085740) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "art_piece_showrooms", "art_pieces"
+  add_foreign_key "art_piece_showrooms", "showrooms"
   add_foreign_key "art_pieces", "exhibitions"
   add_foreign_key "art_pieces", "users"
   add_foreign_key "exhibitions", "galeries"
