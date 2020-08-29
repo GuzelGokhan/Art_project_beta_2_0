@@ -25,7 +25,7 @@ class GaleriesController < ApplicationController
   end
 
   def update
-      if @galery.update_attributes(params[:galery])
+      if @galery.update_attributes(params_galery)
         flash[:success] = "Galery was successfully updated"
         redirect_to @galery
       else
